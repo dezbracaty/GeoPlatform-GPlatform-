@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoPlatform | 实战案例</title>
+  <meta name="description" content="GeoPlatform 实战案例：3D 打印工作流与 CAD 交互工作台视频演示。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-a"></div>
+  <div class="bg-shape bg-shape-b"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/brand/logo.png" alt="GeoPlatform Logo" />
+      <span>GeoPlatform</span>
+    </div>
+    <nav class="top-links" aria-label="Primary">
+      <a href="index.html">平台概览</a>
+      <a href="features.html">核心能力</a>
+      <a class="active" href="cases.html">实战案例</a>
+      <a href="index.html#contact">合作咨询</a>
+    </nav>
+    <div class="top-actions">
+      <a class="cta" href="index.html#contact">联系合作</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <p class="tag">Product Demo</p>
+      <h1>实战案例</h1>
+      <p class="subtitle">优先展示已落地场景，帮助团队快速判断平台是否适配你的业务需求。</p>
+    </section>
+
+    <section class="section" id="print-case">
+      <h2>案例 1：3D 打印工作流（完成度高）</h2>
+      <article class="card case-video">
+        <video controls playsinline preload="metadata">
+          <source src="assets/media/print-demo.mp4" type="video/mp4" />
+          你的浏览器不支持视频播放。
+        </video>
+        <p>覆盖导入模型、摆放编辑、切片预览、打印参数配置等关键流程，可直接用于行业化交付。</p>
+      </article>
+    </section>
+
+    <section class="section" id="cad-case">
+      <h2>案例 2：CAD 交互工作台</h2>
+      <article class="card case-video">
+        <video controls playsinline preload="metadata">
+          <source src="assets/media/cadpreview.mp4" type="video/mp4" />
+          你的浏览器不支持视频播放。
+        </video>
+        <p>支持 Dock 布局、模型操作、工作区切换，适合中小团队快速搭建专业 CAD 界面与交互。</p>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-action">
+        <a class="btn btn-ghost" href="features.html">查看核心能力</a>
+        <a class="btn btn-primary" href="index.html#contact">预约沟通</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> GeoPlatform</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
