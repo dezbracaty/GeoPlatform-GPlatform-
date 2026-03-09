@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoPlatform | 特性深度页</title>
+  <meta name="description" content="GeoPlatform 架构特性深度页：多线程渲染、事务系统、Undo/Redo、自动回放验证。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-a"></div>
+  <div class="bg-shape bg-shape-b"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/brand/logo.png" alt="GeoPlatform Logo" />
+      <span>GeoPlatform</span>
+    </div>
+    <nav class="top-links" aria-label="Primary">
+      <a href="index.html">首页</a>
+      <a class="active" href="features.html">特性深度页</a>
+      <a href="index.html#cases">案例</a>
+      <a href="index.html#contact">联系</a>
+    </nav>
+    <div class="top-actions">
+      <a class="cta" href="index.html#contact">联系合作</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <p class="tag">Core Capabilities</p>
+      <h1>架构特性深度页</h1>
+      <p class="subtitle">
+        这一页专门回答客户最关心的问题：为什么 GeoPlatform 能更快交付、后续还更好维护。
+      </p>
+      <div class="metrics">
+        <article class="card metric"><h3>多线程渲染</h3><p>复杂场景下保持交互流畅</p></article>
+        <article class="card metric"><h3>事务系统</h3><p>状态变更可追踪、可回滚</p></article>
+        <article class="card metric"><h3>Undo / Redo</h3><p>降低试错成本，提升体验</p></article>
+        <article class="card metric"><h3>自动回放</h3><p>回归验证与演示复现</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="threading">
+      <h2>1. 多线程渲染系统</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>核心机制</h3>
+          <p>UI 交互、动作处理、渲染执行分层解耦，避免重计算卡住主交互线程。</p>
+          <div class="flow">
+            <span>QML UI</span>
+            <span>Action/Bridge</span>
+            <span>DBSync</span>
+            <span>Render Thread</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>业务价值</h3>
+          <p>在多模型编辑、连续拖拽、视角切换等高频操作中，体验更稳定，用户培训成本更低。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="transaction">
+      <h2>2. 事务系统 + Undo / Redo</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>事务型数据内核</h3>
+          <p>属性级别变更记录，对象生命周期统一管理，让复杂编辑流程可追踪、可审计。</p>
+        </article>
+        <article class="card">
+          <h3>Undo / Redo 体验</h3>
+          <p>用户可安全试错；团队可快速实现“参数调整 - 结果对比 - 回退重试”的工作流。</p>
+        </article>
+      </div>
+      <article class="card emphasis">
+        <h3>典型场景</h3>
+        <p>3D 打印排版或 CAD 模型调整中，连续操作几十步后仍可精准回退到目标状态。</p>
+      </article>
+    </section>
+
+    <section class="section" id="replay">
+      <h2>3. 自动回放验证（Journal）</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>自动化回放</h3>
+          <p>录制真实用户操作，再自动回放执行，复现问题与验证修复更直接。</p>
+        </article>
+        <article class="card">
+          <h3>交付与测试效率</h3>
+          <p>同一脚本可用于回归测试、版本验收、售前演示，减少“环境不同导致结果不同”的风险。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="backend">
+      <h2>4. 渲染后端策略</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>VTK</h3>
+          <p>当前主用，成熟稳定，已支撑现有 3D 打印与 CAD 示例。</p>
+        </article>
+        <article class="card">
+          <h3>BGFX</h3>
+          <p>已支持，可用于更灵活的图形后端演进和跨平台渲染路线规划。</p>
+        </article>
+        <article class="card">
+          <h3>OCCT</h3>
+          <p>作为可扩展方向，面向更强的几何内核与工程化 CAD 场景需求。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="feature-cases">
+      <h2>架构特性落地案例放这里</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>案例 A：高频交互不卡顿</h3>
+          <p>多线程渲染 + 分层调度，适合复杂模型场景下的连续编辑。</p>
+        </article>
+        <article class="card">
+          <h3>案例 B：状态可回溯</h3>
+          <p>事务系统 + Undo/Redo，降低试错风险，缩短训练周期。</p>
+        </article>
+        <article class="card">
+          <h3>案例 C：回归可自动化</h3>
+          <p>操作回放脚本化，支持持续回归与对外演示标准化。</p>
+        </article>
+      </div>
+      <div class="section-action">
+        <a class="btn btn-ghost" href="index.html#cases">查看视频案例</a>
+        <a class="btn btn-primary" href="index.html#contact">预约沟通</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> GeoPlatform</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
