@@ -104,12 +104,18 @@ p { margin: 0; }
   padding: 18px;
   line-height: 1.7;
 }
+.case-video video {
+  width: 100%;
+  margin: 10px 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #08101b;
+}
 .case-meta {
   margin-top: 10px;
   color: #9ec5ff;
   font-size: 0.92rem;
 }
-.pending .case-meta { color: #f4c88a; }
 
 .arch {
   width: 100%;

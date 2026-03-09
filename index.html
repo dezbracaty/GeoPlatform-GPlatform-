@@ -29,7 +29,7 @@
         <h1>3D 应用快速开发平台</h1>
         <p class="subtitle">
           用 <strong>QML + 多线程渲染 + 事务型 DB</strong> 构建 3D 产品。
-          当前已在 CAD / 3D 打印场景落地，支持按项目演进多后端渲染路线（VTK / OCCT / BGFX）。
+          当前已在 3D 打印 / CAD 场景落地，渲染后端已支持 <strong>VTK / BGFX</strong>，并可按项目扩展 OCCT。
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#cases">看案例</a>
@@ -38,7 +38,7 @@
       </div>
       <div class="hero-media">
         <video controls autoplay muted loop playsinline>
-          <source src="assets/media/cadpreview.mp4" type="video/mp4" />
+          <source src="assets/media/print-demo.mp4" type="video/mp4" />
           你的浏览器不支持视频播放。
         </video>
       </div>
@@ -69,7 +69,7 @@
     </section>
 
     <section class="section" id="features">
-      <h2>核心特性</h2>
+      <h2>特性展示</h2>
       <div class="grid grid-2">
         <article class="card feature">
           <h3>QML / Dock / 工作区</h3>
@@ -85,7 +85,7 @@
         </article>
         <article class="card feature">
           <h3>后端演进能力</h3>
-          <p>当前稳定使用 VTK，架构上预留多后端演进路径（OCCT / BGFX）。</p>
+          <p>当前已支持 VTK / BGFX，并在架构上预留 OCCT 等后端扩展路径。</p>
         </article>
       </div>
     </section>
@@ -93,15 +93,39 @@
     <section class="section" id="cases">
       <h2>落地案例</h2>
       <div class="grid grid-2">
-        <article class="card case">
-          <h3>CAD 交互场景（已展示）</h3>
-          <p>支持 Dock 布局、模型操作、工作区切换，适合中小团队快速搭建专业 CAD 工作台。</p>
+        <article class="card case case-video">
+          <h3>3D 打印工作流（完成度高）</h3>
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/media/print-demo.mp4" type="video/mp4" />
+          </video>
+          <p>覆盖导入模型、摆放编辑、切片预览、打印参数配置等关键流程，可直接用于行业化交付。</p>
+          <div class="case-meta">素材：Screen Recording 2026-03-09 at 9.24.11 PM</div>
+        </article>
+        <article class="card case case-video">
+          <h3>CAD 交互工作台</h3>
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/media/cadpreview.mp4" type="video/mp4" />
+          </video>
+          <p>支持 Dock 布局、模型操作、工作区切换，适合中小团队快速搭建专业 CAD 界面与交互。</p>
           <div class="case-meta">素材：cadpreview.mp4</div>
         </article>
-        <article class="card case pending">
-          <h3>3D 打印工作流（素材待补）</h3>
-          <p>导入模型、摆放编辑、切片预览、打印参数配置，可作为行业化模块快速接入。</p>
-          <div class="case-meta">等待补充：1 段 15-30 秒演示视频或 2 张截图</div>
+      </div>
+    </section>
+
+    <section class="section" id="architecture-cases">
+      <h2>架构特性案例</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>案例 A：事务型编辑链路</h3>
+          <p>通过事务型 DB + Undo/Redo，在模型编辑、参数调整、批量操作中保持状态一致与可回退。</p>
+        </article>
+        <article class="card">
+          <h3>案例 B：多工作区切换</h3>
+          <p>同一内核支持 normal / slicing / support / preview 等模式切换，减少场景扩展成本。</p>
+        </article>
+        <article class="card">
+          <h3>案例 C：回放验证与交付</h3>
+          <p>录制/回放测试流程用于回归验证与演示复现，降低复杂交互系统上线风险。</p>
         </article>
       </div>
     </section>

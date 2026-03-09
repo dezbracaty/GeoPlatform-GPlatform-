@@ -37,7 +37,7 @@
 
   <rect x="120" y="520" width="1160" height="130" class="box"/>
   <text x="700" y="575" text-anchor="middle" class="t2">渲染后端层（可演进）</text>
-  <text x="700" y="609" text-anchor="middle" class="t3">VTK（当前） · OCCT（计划） · BGFX（计划）</text>
+  <text x="700" y="609" text-anchor="middle" class="t3">VTK（当前主用） · BGFX（已支持） · OCCT（可扩展）</text>
 
   <path d="M700 240 L700 280" class="line"/>
   <path d="M700 470 L700 510" class="line"/>
