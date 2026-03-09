@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2FC29B"/>
+      <stop offset="100%" stop-color="#3CC8E8"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F2B45A"/>
+      <stop offset="100%" stop-color="#D98638"/>
+    </linearGradient>
+    <style>
+      .t1{font:700 30px 'Segoe UI',sans-serif;fill:#EAF2FF}
+      .t2{font:600 20px 'Segoe UI',sans-serif;fill:#D7E6FF}
+      .t3{font:500 16px 'Segoe UI',sans-serif;fill:#AEC4E8}
+      .box{fill:#0F1D31;stroke:#294261;stroke-width:2;rx:16}
+      .line{stroke:#4E7096;stroke-width:3;stroke-linecap:round}
+    </style>
+  </defs>
+
+  <rect width="1400" height="760" fill="#0A1322"/>
+
+  <text x="700" y="60" text-anchor="middle" class="t1">GeoPlatform 架构（对外简化版）</text>
+
+  <rect x="120" y="120" width="1160" height="120" class="box"/>
+  <text x="700" y="172" text-anchor="middle" class="t2">UI / 交互层</text>
+  <text x="700" y="205" text-anchor="middle" class="t3">QML Components · Dock Workspace · Action/Bridge</text>
+
+  <rect x="120" y="290" width="520" height="180" class="box"/>
+  <text x="380" y="342" text-anchor="middle" class="t2">数据与业务内核</text>
+  <text x="380" y="376" text-anchor="middle" class="t3">Transaction DB · Undo/Redo · Object Lifecycle</text>
+  <text x="380" y="404" text-anchor="middle" class="t3">Document Manager · Change Tracking</text>
+
+  <rect x="760" y="290" width="520" height="180" class="box"/>
+  <text x="1020" y="342" text-anchor="middle" class="t2">渲染同步层</text>
+  <text x="1020" y="376" text-anchor="middle" class="t3">DBSync · Render Thread · Picking · Context</text>
+  <text x="1020" y="404" text-anchor="middle" class="t3">Thread-safe Pipeline</text>
+
+  <rect x="120" y="520" width="1160" height="130" class="box"/>
+  <text x="700" y="575" text-anchor="middle" class="t2">渲染后端层（可演进）</text>
+  <text x="700" y="609" text-anchor="middle" class="t3">VTK（当前） · OCCT（计划） · BGFX（计划）</text>
+
+  <path d="M700 240 L700 280" class="line"/>
+  <path d="M700 470 L700 510" class="line"/>
+  <path d="M700 380 L640 380" class="line"/>
+  <path d="M700 380 L760 380" class="line"/>
+
+  <rect x="545" y="332" width="310" height="95" rx="48" fill="url(#g1)" opacity="0.13"/>
+  <text x="700" y="372" text-anchor="middle" class="t3" fill="#BFEFE4">Stable Core + Fast Delivery</text>
+  <text x="700" y="397" text-anchor="middle" class="t3" fill="#BFEFE4">for Small Teams</text>
+
+  <rect x="1025" y="555" width="220" height="60" rx="10" fill="url(#g2)" opacity="0.25"/>
+  <text x="1135" y="592" text-anchor="middle" class="t3" fill="#FFE0B5">Backend Evolution</text>
+</svg>

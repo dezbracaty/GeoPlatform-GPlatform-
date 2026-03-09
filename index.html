@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoPlatform | 3D 应用快速开发平台</title>
+  <meta name="description" content="GeoPlatform 是面向中小团队的 3D 应用快速开发平台，提供 QML 前端、事务型 DB 内核和多线程渲染架构。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-a"></div>
+  <div class="bg-shape bg-shape-b"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/brand/logo.png" alt="GeoPlatform Logo" />
+      <span>GeoPlatform</span>
+    </div>
+    <a class="cta" href="#contact">联系合作</a>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="hero-copy">
+        <p class="tag">For Small Teams</p>
+        <h1>3D 应用快速开发平台</h1>
+        <p class="subtitle">
+          用 <strong>QML + 多线程渲染 + 事务型 DB</strong> 构建 3D 产品。
+          当前已在 CAD / 3D 打印场景落地，支持按项目演进多后端渲染路线（VTK / OCCT / BGFX）。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cases">看案例</a>
+          <a class="btn btn-ghost" href="#architecture">看架构</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <video controls autoplay muted loop playsinline>
+          <source src="assets/media/cadpreview.mp4" type="video/mp4" />
+          你的浏览器不支持视频播放。
+        </video>
+      </div>
+    </section>
+
+    <section class="section" id="value">
+      <h2>为什么是 GeoPlatform</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>前端迭代快</h3>
+          <p>QML 组件化界面，支持复杂交互、Dock 布局和工作区切换，界面变化可快速验证。</p>
+        </article>
+        <article class="card">
+          <h3>架构可扩展</h3>
+          <p>数据层、交互层、渲染层分离。先跑通业务，再逐步升级能力，不被一次性大重构绑架。</p>
+        </article>
+        <article class="card">
+          <h3>工程稳定性</h3>
+          <p>事务机制支撑撤销/重做，配合动作系统与回放验证，降低复杂功能回归风险。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <h2>简化架构图（对外版）</h2>
+      <p class="hint">只展示层次关系，不暴露实现细节。</p>
+      <img class="arch" src="assets/media/architecture-lite.svg" alt="GeoPlatform Simplified Architecture" />
+    </section>
+
+    <section class="section" id="features">
+      <h2>核心特性</h2>
+      <div class="grid grid-2">
+        <article class="card feature">
+          <h3>QML / Dock / 工作区</h3>
+          <p>面向产品需求快速定义 UI 与交互流程，减少“每次新需求都重写界面”的成本。</p>
+        </article>
+        <article class="card feature">
+          <h3>多线程渲染管线</h3>
+          <p>渲染任务与主交互分离，适合复杂场景和高频操作。</p>
+        </article>
+        <article class="card feature">
+          <h3>事务型 DB 内核</h3>
+          <p>属性级变更追踪、撤销/重做、对象生命周期可控，便于构建专业 3D 编辑能力。</p>
+        </article>
+        <article class="card feature">
+          <h3>后端演进能力</h3>
+          <p>当前稳定使用 VTK，架构上预留多后端演进路径（OCCT / BGFX）。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="cases">
+      <h2>落地案例</h2>
+      <div class="grid grid-2">
+        <article class="card case">
+          <h3>CAD 交互场景（已展示）</h3>
+          <p>支持 Dock 布局、模型操作、工作区切换，适合中小团队快速搭建专业 CAD 工作台。</p>
+          <div class="case-meta">素材：cadpreview.mp4</div>
+        </article>
+        <article class="card case pending">
+          <h3>3D 打印工作流（素材待补）</h3>
+          <p>导入模型、摆放编辑、切片预览、打印参数配置，可作为行业化模块快速接入。</p>
+          <div class="case-meta">等待补充：1 段 15-30 秒演示视频或 2 张截图</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="cooperation">
+      <h2>合作方式</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>2 周 PoC</h3>
+          <p>验证核心业务链路与性能边界。</p>
+        </article>
+        <article class="card">
+          <h3>4-8 周 MVP</h3>
+          <p>交付可运行版本，支撑内部试点或客户演示。</p>
+        </article>
+        <article class="card">
+          <h3>长期共建</h3>
+          <p>按模块迭代，持续扩展场景能力。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <h2>联系合作</h2>
+      <p>wechat: <strong>xiaojunyi8890</strong></p>
+      <p class="hint">欢迎带业务场景沟通，我们先做一版可运行原型。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> GeoPlatform</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
