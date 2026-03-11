@@ -26,6 +26,7 @@
       <a href="#contact">合作咨询</a>
     </nav>
     <div class="top-actions">
+      <a class="cta cta-secondary" href="features.html">特性深度</a>
       <a class="cta" href="#contact">联系合作</a>
     </div>
   </header>
@@ -40,7 +41,8 @@
           当前已在 3D 打印 / CAD 场景落地，渲染后端已支持 <strong>VTK / BGFX</strong>，并可按项目扩展 OCCT。
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="cases.html">看案例</a>
+          <a class="btn btn-primary" href="features.html">看特性深度</a>
+          <a class="btn btn-ghost" href="cases.html">看案例</a>
           <a class="btn btn-ghost" href="#architecture">看架构</a>
         </div>
       </div>
@@ -74,27 +76,30 @@
       <h2>核心架构总览</h2>
       <p class="hint">一图看懂平台核心模块与协作关系。</p>
       <img class="arch" src="assets/media/architecture-lite.svg" alt="GeoPlatform Simplified Architecture" />
+      <div class="section-action">
+        <a class="btn btn-primary" href="features.html">看特性深度演示</a>
+      </div>
     </section>
 
     <section class="section" id="features">
       <h2>特性展示</h2>
       <div class="grid grid-2">
-        <article class="card feature">
+        <a class="card feature feature-link" href="features.html#threading">
           <h3>QML / Dock / 工作区</h3>
           <p>面向产品需求快速定义 UI 与交互流程，减少“每次新需求都重写界面”的成本。</p>
-        </article>
-        <article class="card feature">
+        </a>
+        <a class="card feature feature-link" href="features.html#threading">
           <h3>多线程渲染管线</h3>
           <p>渲染任务与主交互分离，适合复杂场景和高频操作。</p>
-        </article>
-        <article class="card feature">
+        </a>
+        <a class="card feature feature-link" href="features.html#transaction">
           <h3>事务型 DB 内核</h3>
           <p>属性级变更追踪、撤销/重做、对象生命周期可控，便于构建专业 3D 编辑能力。</p>
-        </article>
-        <article class="card feature">
+        </a>
+        <a class="card feature feature-link" href="features.html#backend">
           <h3>后端演进能力</h3>
           <p>当前已支持 VTK / BGFX，并在架构上预留 OCCT 等后端扩展路径。</p>
-        </article>
+        </a>
       </div>
       <div class="section-action">
         <a class="btn btn-primary" href="features.html">进入特性深度页</a>
@@ -133,6 +138,8 @@
       <p class="hint">欢迎带业务场景沟通，我们先做一版可运行原型。</p>
     </section>
   </main>
+
+  <a class="mobile-feature-cta" href="features.html" aria-label="查看特性深度页">查看特性深度</a>
 
   <footer>
     <p>© <span id="year"></span> GeoPlatform</p>
