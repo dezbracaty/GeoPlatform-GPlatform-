@@ -293,6 +293,16 @@ p { margin: 0; }
   gap: 12px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.switch-matrix-panel {
+  margin-top: 14px;
+  border: 1px solid #2e496d;
+  border-radius: 16px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 8% -10%, rgba(60, 200, 232, 0.12), transparent 40%),
+    radial-gradient(circle at 92% 120%, rgba(47, 194, 155, 0.12), transparent 40%),
+    rgba(8, 18, 30, 0.88);
+}
 .switch-card {
   min-height: 158px;
 }
@@ -336,6 +346,16 @@ p { margin: 0; }
 .capability-table tbody tr:last-child td {
   border-bottom: 0;
 }
+.table-link {
+  color: #86e8d0;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px dashed #86e8d088;
+}
+.table-link:hover {
+  color: #b7ffec;
+  border-bottom-color: #b7ffec;
+}
 
 .contact {
   text-align: center;
@@ -371,7 +391,7 @@ footer {
   .control-pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .switch-grid { grid-template-columns: 1fr; }
   .capability-table-wrap { overflow-x: auto; }
-  .capability-table { min-width: 620px; }
+  .capability-table { min-width: 760px; }
   .top-links { display: none; }
   .top-actions .cta-secondary { display: none; }
   .mobile-feature-cta { display: inline-block; }
