@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GeoPlatform | 3D 应用快速开发平台</title>
-  <meta name="description" content="GeoPlatform 是面向中小团队的 3D 应用快速开发平台，提供 QML 前端、事务型 DB 内核和多线程渲染架构。" />
+  <title>GeoPlatform | AI 驱动的 3D 软件平台</title>
+  <meta name="description" content="GeoPlatform 是 AI 驱动的 3D 软件平台：AI 可直接调用软件动作与数据能力，并在同一内核上快速切换到不同 3D 业务方向。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
     </div>
     <nav class="top-links" aria-label="Primary">
       <a class="active" href="index.html">平台概览</a>
+      <a href="#ai-control">AI 控制闭环</a>
       <a href="features.html">特性深度页</a>
       <a href="cases.html">落地案例</a>
       <a href="#contact">合作咨询</a>
@@ -34,71 +35,165 @@
   <main>
     <section class="hero section">
       <div class="hero-copy">
-        <p class="tag">For Small Teams</p>
-        <h1>3D 应用快速开发平台</h1>
+        <p class="tag">AI-Driven Platform</p>
+        <h1>让 AI 直接操作 3D 软件</h1>
         <p class="subtitle">
-          用 <strong>QML + 多线程渲染 + 事务型 DB</strong> 构建 3D 产品。
-          当前已在 3D 打印 / CAD 场景落地，渲染后端已支持 <strong>VTK / BGFX</strong>，并可按项目扩展 OCCT。
+          这不是“聊天助手”页面，而是可执行的软件控制层：
+          <strong>自然语言意图 -> Tool Call -> 软件动作执行 -> 事务记录 -> Undo/Redo -> Journal 回放</strong>。
+          在同一套 3D 内核上，既能落地当前业务，也能快速切换到新的 3D 场景。
         </p>
+        <div class="hero-strip">
+          <span>Action Invoke</span>
+          <span>DB Patch</span>
+          <span>Undo / Redo</span>
+          <span>Journal Replay</span>
+        </div>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="features.html">看特性深度</a>
-          <a class="btn btn-ghost" href="cases.html">看案例</a>
-          <a class="btn btn-ghost" href="#architecture">看架构</a>
+          <a class="btn btn-primary" href="#ai-control">看 AI 控制闭环</a>
+          <a class="btn btn-ghost" href="#switch-matrix">看业务切换矩阵</a>
+          <a class="btn btn-ghost" href="features.html">看技术细节</a>
         </div>
       </div>
       <div class="hero-media">
-        <video controls autoplay muted playsinline data-playlist="assets/media/print-demo.part1.mp4,assets/media/print-demo.part2.mp4,assets/media/print-demo.part3.mp4">
-          <source src="assets/media/print-demo.part1.mp4" type="video/mp4" />
+        <video controls autoplay muted playsinline>
+          <source src="assets/media/ai-demo-20260323.mp4" type="video/mp4" />
           你的浏览器不支持视频播放。
         </video>
       </div>
     </section>
 
+    <section class="section" id="ai-control">
+      <h2>AI 控制闭环（可执行，不止对话）</h2>
+      <p class="hint">AI 在平台中被约束为“可审计的操作员”，不是自由发挥的文本机器人。</p>
+      <div class="control-pipeline">
+        <article class="card pipeline-step">
+          <p class="step-index">01</p>
+          <h3>意图理解</h3>
+          <p>解析用户目标，选择动作调用或数据改写路径。</p>
+        </article>
+        <article class="card pipeline-step">
+          <p class="step-index">02</p>
+          <h3>工具调用</h3>
+          <p>执行 action / db query / db patch，不走不可控“口头建议”。</p>
+        </article>
+        <article class="card pipeline-step">
+          <p class="step-index">03</p>
+          <h3>软件执行</h3>
+          <p>直接触发 3D 软件内动作，落到真实模型和场景状态。</p>
+        </article>
+        <article class="card pipeline-step">
+          <p class="step-index">04</p>
+          <h3>安全回滚</h3>
+          <p>事务系统记录变更，支持 Undo/Redo 和 Journal 回放复现。</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section" id="value">
-      <h2>为什么是 GeoPlatform</h2>
+      <h2>AI 直控带来的产品价值</h2>
       <div class="grid grid-3">
         <article class="card">
-          <h3>前端迭代快</h3>
-          <p>QML 组件化界面，支持复杂交互、Dock 布局和工作区切换，界面变化可快速验证。</p>
+          <h3>从“指令”到“结果”更短</h3>
+          <p>AI 可直接调软件动作，不再依赖人工多轮转述和手工操作。</p>
         </article>
         <article class="card">
-          <h3>架构可扩展</h3>
-          <p>数据层、交互层、渲染层分离。先跑通业务，再逐步升级能力，不被一次性大重构绑架。</p>
+          <h3>过程可控可审计</h3>
+          <p>每一步都进入事务与日志体系，失败可回退，结果可复盘。</p>
         </article>
         <article class="card">
-          <h3>工程稳定性</h3>
-          <p>事务机制支撑撤销/重做，配合动作系统与回放验证，降低复杂功能回归风险。</p>
+          <h3>面向交付可复制</h3>
+          <p>同一流程可用于演示、测试和部署，不靠“手感操作”维持稳定性。</p>
         </article>
       </div>
     </section>
 
     <section class="section" id="architecture">
-      <h2>核心架构总览</h2>
-      <p class="hint">一图看懂平台核心模块与协作关系。</p>
+      <h2>平台内核：一次搭建，长期复用</h2>
+      <p class="hint">QML 前端 + 动作层 + 事务型 DB + 多线程渲染，形成可扩展的 3D 软件底盘。</p>
       <img class="arch" src="assets/media/architecture-lite.svg" alt="GeoPlatform Simplified Architecture" />
       <div class="section-action">
-        <a class="btn btn-primary" href="features.html">看特性深度演示</a>
+        <a class="btn btn-primary" href="features.html">看架构特性细节</a>
+      </div>
+    </section>
+
+    <section class="section" id="switch-matrix">
+      <h2>同一平台，快速切换到不同 3D 业务方向</h2>
+      <p class="hint">先复用内核能力，再替换业务流程与模型规则，避免每次从零开发一套新软件。</p>
+      <div class="switch-grid">
+        <article class="card switch-card">
+          <h3>3D 打印流程</h3>
+          <p>导入、排版、切片、路径预览、任务输出。</p>
+          <p class="switch-tag">当前已落地场景</p>
+        </article>
+        <article class="card switch-card">
+          <h3>轻量 CAD 编辑</h3>
+          <p>参数化建模、对象操作、版本回退、协作审阅。</p>
+          <p class="switch-tag">可快速复用</p>
+        </article>
+        <article class="card switch-card">
+          <h3>行业定制 3D 工具</h3>
+          <p>巡检标注、教学仿真、工艺辅助、资产编辑等方向。</p>
+          <p class="switch-tag">按业务模块扩展</p>
+        </article>
+      </div>
+      <div class="capability-table-wrap">
+        <table class="capability-table">
+          <thead>
+            <tr>
+              <th>平台能力</th>
+              <th>打印</th>
+              <th>CAD</th>
+              <th>定制行业工具</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AI 动作控制</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>事务 + Undo/Redo</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>多线程渲染链路</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>业务规则/流程替换</td>
+              <td>Slice Flow</td>
+              <td>Modeling Flow</td>
+              <td>Domain Flow</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <section class="section" id="features">
-      <h2>特性展示</h2>
+      <h2>关键能力</h2>
       <div class="grid grid-2">
         <a class="card feature feature-link" href="features.html#threading">
-          <h3>QML / Dock / 工作区</h3>
-          <p>面向产品需求快速定义 UI 与交互流程，减少“每次新需求都重写界面”的成本。</p>
+          <h3>AI 到软件动作的执行链</h3>
+          <p>支持 action invoke 与数据修改能力，AI 可直接驱动软件行为。</p>
         </a>
         <a class="card feature feature-link" href="features.html#threading">
           <h3>多线程渲染管线</h3>
-          <p>渲染任务与主交互分离，适合复杂场景和高频操作。</p>
+          <p>渲染任务与主交互分离，保证复杂模型操作下的可用性。</p>
         </a>
         <a class="card feature feature-link" href="features.html#transaction">
-          <h3>事务型 DB 内核</h3>
-          <p>属性级变更追踪、撤销/重做、对象生命周期可控，便于构建专业 3D 编辑能力。</p>
+          <h3>事务型 DB + Undo/Redo</h3>
+          <p>属性级变更追踪与可回滚执行，是 AI 直控可落地的关键安全层。</p>
         </a>
         <a class="card feature feature-link" href="features.html#backend">
           <h3>后端演进能力</h3>
-          <p>当前已支持 VTK / BGFX，并在架构上预留 OCCT 等后端扩展路径。</p>
+          <p>当前主用 VTK，并预留 OCCT 等几何能力扩展路径。</p>
         </a>
       </div>
       <div class="section-action">
@@ -108,7 +203,7 @@
 
     <section class="section" id="cases-entry">
       <h2>落地案例</h2>
-      <p class="hint">案例已独立成单页，集中展示 3D 打印与 CAD 的完整演示视频。</p>
+      <p class="hint">展示 AI 驱动执行与 3D 场景落地过程，支持售前与交付演示复用。</p>
       <div class="section-action">
         <a class="btn btn-primary" href="cases.html">进入落地案例页</a>
       </div>
@@ -119,15 +214,15 @@
       <div class="grid grid-3">
         <article class="card">
           <h3>2 周 PoC</h3>
-          <p>验证核心业务链路与性能边界。</p>
+          <p>验证 AI 控制链路与目标业务的关键流程可行性。</p>
         </article>
         <article class="card">
           <h3>4-8 周 MVP</h3>
-          <p>交付可运行版本，支撑内部试点或客户演示。</p>
+          <p>复用平台底盘，交付可演示、可试点的业务版本。</p>
         </article>
         <article class="card">
           <h3>长期共建</h3>
-          <p>按模块迭代，持续扩展场景能力。</p>
+          <p>按模块持续扩展到更多 3D 场景与行业工具。</p>
         </article>
       </div>
     </section>
@@ -139,7 +234,7 @@
     </section>
   </main>
 
-  <a class="mobile-feature-cta" href="features.html" aria-label="查看特性深度页">查看特性深度</a>
+  <a class="mobile-feature-cta" href="#ai-control" aria-label="查看 AI 控制闭环">查看 AI 控制闭环</a>
 
   <footer>
     <p>© <span id="year"></span> GeoPlatform</p>

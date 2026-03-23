@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GeoPlatform | 特性深度页</title>
-  <meta name="description" content="GeoPlatform 架构特性深度页：多线程渲染、事务系统、Undo/Redo、自动回放验证。" />
+  <meta name="description" content="GeoPlatform 架构特性深度页：AI 直接控制软件、多线程渲染、事务系统、Undo/Redo、自动回放验证。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -38,11 +38,40 @@
         围绕“交付速度与长期可维护性”，整理平台核心架构能力。
       </p>
       <div class="metrics">
+        <article class="card metric"><h3>AI 直控软件</h3><p>动作可执行，可追踪可回滚</p></article>
         <article class="card metric"><h3>多线程渲染</h3><p>复杂场景下保持交互流畅</p></article>
         <article class="card metric"><h3>事务系统</h3><p>状态变更可追踪、可回滚</p></article>
         <article class="card metric"><h3>Undo / Redo</h3><p>降低试错成本，提升体验</p></article>
-        <article class="card metric"><h3>自动回放</h3><p>回归验证与演示复现</p></article>
       </div>
+    </section>
+
+    <section class="section" id="ai-demo">
+      <h2>0. AI 直接控制软件（核心演示）</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>关键点</h3>
+          <p>AI 并非只返回文本，而是可直接调用软件动作与数据能力，并进入事务系统。</p>
+          <div class="flow">
+            <span>Intent</span>
+            <span>Tool Call</span>
+            <span>Action/DB</span>
+            <span>Undo/Redo</span>
+            <span>Replay</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>交付价值</h3>
+          <p>把“需求描述 -> 软件操作 -> 状态变更”打通，降低培训成本，提高复杂流程执行效率。</p>
+        </article>
+      </div>
+      <article class="card case-video">
+        <h3>演示视频：AI 驱动 3D 软件</h3>
+        <video controls playsinline preload="metadata">
+          <source src="assets/media/ai-demo-20260323.mp4" type="video/mp4" />
+          你的浏览器不支持视频播放。
+        </video>
+        <p>演示 AI 触发软件操作链路，以及在真实 3D 界面中的执行效果。</p>
+      </article>
     </section>
 
     <section class="section" id="threading">
@@ -136,7 +165,7 @@
         </article>
         <article class="card">
           <h3>BGFX</h3>
-          <p>已支持，可用于更灵活的图形后端演进和跨平台渲染路线规划。</p>
+          <p>作为后续演进方向，可用于更灵活的图形后端和跨平台渲染路线规划。</p>
         </article>
         <article class="card">
           <h3>OCCT</h3>
