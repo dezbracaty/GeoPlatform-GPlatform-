@@ -32,3 +32,40 @@ document.querySelectorAll("video[data-playlist]").forEach((video) => {
     video.play().catch(() => {});
   });
 });
+
+// Mobile floating navigation: FAB toggle + outside click close.
+document.querySelectorAll(".mobile-nav").forEach((mobileNav) => {
+  const fab = mobileNav.querySelector(".mobile-nav-fab");
+  const menu = mobileNav.querySelector(".mobile-nav-menu");
+  const links = mobileNav.querySelectorAll(".mobile-nav-link");
+  if (!fab || !menu) {
+    return;
+  }
+
+  const setOpen = (open) => {
+    mobileNav.classList.toggle("open", open);
+    fab.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+
+  fab.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setOpen(!mobileNav.classList.contains("open"));
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!mobileNav.contains(event.target)) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+    }
+  });
+});
