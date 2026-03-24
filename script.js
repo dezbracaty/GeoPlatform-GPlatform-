@@ -70,7 +70,8 @@ document.querySelectorAll(".mobile-nav").forEach((mobileNav) => {
   });
 });
 
-// Auto-play videos when they enter viewport (scroll/drag), pause when leaving.
+// Auto-play video when it enters viewport, pause when leaving.
+// Keep exactly one video playing at a time (highest visible ratio).
 (() => {
   const videos = Array.from(document.querySelectorAll("video"));
   if (!videos.length) {
@@ -78,6 +79,7 @@ document.querySelectorAll(".mobile-nav").forEach((mobileNav) => {
   }
 
   const autoState = new WeakMap();
+  const MIN_ACTIVE_RATIO = 0.5;
 
   const safePlay = (video) => {
     const p = video.play();
@@ -86,29 +88,40 @@ document.querySelectorAll(".mobile-nav").forEach((mobileNav) => {
     }
   };
 
+  const syncPlayback = () => {
+    if (document.hidden) {
+      videos.forEach((video) => video.pause());
+      return;
+    }
+
+    let activeVideo = null;
+    let bestRatio = 0;
+
+    videos.forEach((video) => {
+      const state = autoState.get(video);
+      if (!state) return;
+      if (state.ratio >= MIN_ACTIVE_RATIO && state.ratio > bestRatio) {
+        bestRatio = state.ratio;
+        activeVideo = video;
+      }
+    });
+
+    videos.forEach((video) => {
+      if (video === activeVideo) {
+        safePlay(video);
+      } else {
+        video.pause();
+      }
+    });
+  };
+
   videos.forEach((video) => {
     // Ensure browser autoplay policy compatibility.
     video.setAttribute("playsinline", "");
     if (!video.hasAttribute("muted")) {
       video.muted = true;
     }
-    autoState.set(video, { inView: false, hover: false });
-
-    video.addEventListener("mouseenter", () => {
-      const state = autoState.get(video);
-      if (!state) return;
-      state.hover = true;
-      safePlay(video);
-    });
-
-    video.addEventListener("mouseleave", () => {
-      const state = autoState.get(video);
-      if (!state) return;
-      state.hover = false;
-      if (!state.inView) {
-        video.pause();
-      }
-    });
+    autoState.set(video, { ratio: 0 });
   });
 
   const observer = new IntersectionObserver(
@@ -117,32 +130,18 @@ document.querySelectorAll(".mobile-nav").forEach((mobileNav) => {
         const video = entry.target;
         const state = autoState.get(video);
         if (!state) return;
-
-        state.inView = entry.isIntersecting && entry.intersectionRatio >= 0.45;
-        if (state.inView) {
-          safePlay(video);
-        } else if (!state.hover) {
-          video.pause();
-        }
+        state.ratio = entry.isIntersecting ? entry.intersectionRatio : 0;
       });
+      syncPlayback();
     },
     {
-      threshold: [0, 0.2, 0.45, 0.7, 1]
+      threshold: [0, 0.2, 0.35, 0.5, 0.7, 0.9, 1]
     }
   );
 
   videos.forEach((video) => observer.observe(video));
 
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      videos.forEach((video) => video.pause());
-      return;
-    }
-    videos.forEach((video) => {
-      const state = autoState.get(video);
-      if (state && (state.inView || state.hover)) {
-        safePlay(video);
-      }
-    });
+    syncPlayback();
   });
 })();
