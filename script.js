@@ -69,3 +69,80 @@ document.querySelectorAll(".mobile-nav").forEach((mobileNav) => {
     }
   });
 });
+
+// Auto-play videos when they enter viewport (scroll/drag), pause when leaving.
+(() => {
+  const videos = Array.from(document.querySelectorAll("video"));
+  if (!videos.length) {
+    return;
+  }
+
+  const autoState = new WeakMap();
+
+  const safePlay = (video) => {
+    const p = video.play();
+    if (p && typeof p.catch === "function") {
+      p.catch(() => {});
+    }
+  };
+
+  videos.forEach((video) => {
+    // Ensure browser autoplay policy compatibility.
+    video.setAttribute("playsinline", "");
+    if (!video.hasAttribute("muted")) {
+      video.muted = true;
+    }
+    autoState.set(video, { inView: false, hover: false });
+
+    video.addEventListener("mouseenter", () => {
+      const state = autoState.get(video);
+      if (!state) return;
+      state.hover = true;
+      safePlay(video);
+    });
+
+    video.addEventListener("mouseleave", () => {
+      const state = autoState.get(video);
+      if (!state) return;
+      state.hover = false;
+      if (!state.inView) {
+        video.pause();
+      }
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        const state = autoState.get(video);
+        if (!state) return;
+
+        state.inView = entry.isIntersecting && entry.intersectionRatio >= 0.45;
+        if (state.inView) {
+          safePlay(video);
+        } else if (!state.hover) {
+          video.pause();
+        }
+      });
+    },
+    {
+      threshold: [0, 0.2, 0.45, 0.7, 1]
+    }
+  );
+
+  videos.forEach((video) => observer.observe(video));
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      videos.forEach((video) => video.pause());
+      return;
+    }
+    videos.forEach((video) => {
+      const state = autoState.get(video);
+      if (state && (state.inView || state.hover)) {
+        safePlay(video);
+      }
+    });
+  });
+})();
